@@ -63,31 +63,42 @@ namespace ControlFlowExercise
             //    the number, display “You won"; otherwise, display “You lost". 
             //    (To make sure the program is behaving correctly, you can display the secret number on the console first.)
 
-            var random = new Random();
-            var numToGuess = random.Next(1, 10);
-            var chances = 4;
-            Console.WriteLine(numToGuess);
+            //var random = new Random();
+            //var numToGuess = random.Next(1, 10);
+            //var chances = 4;
+            //Console.WriteLine(numToGuess);
 
-            while (chances > 0)
-            {
-                Console.Write("Guess a number between 1 and 10. You have " + chances + " guesses. ");
-                var input = Int32.Parse(Console.ReadLine());
-                if (input == numToGuess)
-                {
-                    Console.WriteLine("You won!");
-                    break;
-                }
-                else
-                {
-                    chances--;
-                    continue;
-                }
-                
-            }
-            if (chances == 0)
-            {
-                Console.WriteLine("You Lost");
-            }
+            //while (chances > 0)
+            //{
+            //    Console.Write("Guess a number between 1 and 10. You have " + chances + " guesses. ");
+            //    var input = Int32.Parse(Console.ReadLine());
+            //    if (input == numToGuess)
+            //    {
+            //        Console.WriteLine("You won!");
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        chances--;
+            //        continue;
+            //    }
+
+            //}
+            //if (chances == 0)
+            //{
+            //    Console.WriteLine("You Lost");
+            //}
+
+            //5 - Write a program and ask the user to enter a series of numbers 
+            //    separated by comma.Find the maximum of the numbers and display it 
+            //    on the console. For example, if the user enters “5, 3, 8, 1, 4", the program should display 8.
+
+            Console.Write("Enter a series of numbers: ");
+            var input = Console.ReadLine();
+            var numArray = input.Split(',');
+            var newArray = Array.ConvertAll(numArray, int.Parse);
+            var maxNum = newArray.Max();
+            Console.WriteLine("Your max number is: " + maxNum);
 
         }
     }
