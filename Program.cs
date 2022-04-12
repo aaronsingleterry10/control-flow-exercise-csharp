@@ -49,14 +49,46 @@ namespace ControlFlowExercise
             //    if the user enters 5, the program should calculate 5 x 4 x 3 x 2 x 1 
             //    and display it as 5! = 120.
 
-            Console.Write("Enter a number: ");
-            var input = Int32.Parse(Console.ReadLine());
-            var factorial = input;
-            for (var i = (input - 1); i >= 1; i--)
+            //Console.Write("Enter a number: ");
+            //var input = Int32.Parse(Console.ReadLine());
+            //var factorial = input;
+            //for (var i = (input - 1); i >= 1; i--)
+            //{
+            //    input *= i;
+            //}
+            //Console.WriteLine("Your factorial is: " + factorial + "! = " + input);
+
+            //4 - Write a program that picks a random number between 1 and 10.
+            //    Give the user 4 chances to guess the number.If the user guesses 
+            //    the number, display “You won"; otherwise, display “You lost". 
+            //    (To make sure the program is behaving correctly, you can display the secret number on the console first.)
+
+            var random = new Random();
+            var numToGuess = random.Next(1, 10);
+            var chances = 4;
+            Console.WriteLine(numToGuess);
+
+            while (chances > 0)
             {
-                input *= i;
+                Console.Write("Guess a number between 1 and 10. You have " + chances + " guesses. ");
+                var input = Int32.Parse(Console.ReadLine());
+                if (input == numToGuess)
+                {
+                    Console.WriteLine("You won!");
+                    break;
+                }
+                else
+                {
+                    chances--;
+                    continue;
+                }
+                
             }
-            Console.WriteLine("Your factorial is: " + factorial + "! = " + input);
+            if (chances == 0)
+            {
+                Console.WriteLine("You Lost");
+            }
+
         }
     }
 }
